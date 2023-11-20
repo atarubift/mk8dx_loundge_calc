@@ -1,0 +1,23 @@
+Track
+- コース名
+- 順位の回数(1~12位)
+
+Track_category
+- カップ名
+
+Mogi
+- 形式
+- スコア合計
+- チーム順位
+- 個人順位
+- 作成日時
+- 更新日時
+
+Mogi_type
+- 形式名
+
+Mogi_result
+- Mogi_id
+- track_id
+- 順位
+- 作成日時
