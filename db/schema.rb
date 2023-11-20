@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_20_113001) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_20_114249) do
+  create_table "track_categories", charset: "utf8mb4", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "tracks", charset: "utf8mb4", force: :cascade do |t|
     t.string "name"
     t.integer "first"
@@ -27,6 +33,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_20_113001) do
     t.integer "twelfth"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "track_category_id"
+    t.index ["track_category_id"], name: "index_tracks_on_track_category_id"
   end
 
+  add_foreign_key "tracks", "track_categories"
 end
