@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  total_score: 1
+  team_rank: 1
+  solo_rank: 1
+
+two:
+  total_score: 1
+  team_rank: 1
+  solo_rank: 1

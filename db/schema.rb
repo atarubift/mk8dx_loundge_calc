@@ -10,7 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_20_114249) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_20_115602) do
+  create_table "mogi_results", charset: "utf8mb4", force: :cascade do |t|
+    t.integer "rank"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "tracks_id"
+    t.bigint "mogis_id"
+    t.index ["mogis_id"], name: "index_mogi_results_on_mogis_id"
+    t.index ["tracks_id"], name: "index_mogi_results_on_tracks_id"
+  end
+
+  create_table "mogi_types", charset: "utf8mb4", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "mogis", charset: "utf8mb4", force: :cascade do |t|
+    t.integer "total_score"
+    t.integer "team_rank"
+    t.integer "solo_rank"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "mogi_type_id"
+    t.index ["mogi_type_id"], name: "index_mogis_on_mogi_type_id"
+  end
+
   create_table "track_categories", charset: "utf8mb4", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -37,5 +63,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_20_114249) do
     t.index ["track_category_id"], name: "index_tracks_on_track_category_id"
   end
 
+  add_foreign_key "mogi_results", "mogis", column: "mogis_id"
+  add_foreign_key "mogi_results", "tracks", column: "tracks_id"
+  add_foreign_key "mogis", "mogi_types"
   add_foreign_key "tracks", "track_categories"
 end
