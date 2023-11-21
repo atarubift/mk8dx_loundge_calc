@@ -11,7 +11,16 @@ class MogisController < ApplicationController
 
   def create
     @mogis = Mogi.new(mogis_params)
+    mogi_results_attributes = params.require(:mogi).permit(
+      mogi_results_attributes: [:track_id, :rank]
+      )[:mogi_results_attributes]
     if @mogis.save
+      mogi_results_attributes_array = mogi_results_attributes.to_h.map do |index, attributes|
+        track_id = attributes[:track_id]
+        rank = attributes[:rank]
+        track = Track.find(track_id)
+        track.increment_rank(rank.to_i)
+      end
       redirect_to mogis_path
     else
       puts @mogis.errors.full_messages
