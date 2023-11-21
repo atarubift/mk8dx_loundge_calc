@@ -14,9 +14,11 @@
       <%= form.label :solo_rank %>
       <%= form.number_field :solo_rank %>
 
+      <%= form.label :url %>
+      <%= form.text_field :url %>
+
       <%= form.fields_for :mogi_results do |mogi_result_form| %>
         <div style="margin-bottom: 10px;">
-          <%# <%= form.label "mogi_results_attributes[0][track_id]", "1" %>
           <%= mogi_result_form.collection_select :track_id, Track.all, :id, :name, prompt: 'Select Track' %>
           <%= mogi_result_form.number_field :rank, placeholder: 'Rank' %>
         </div>

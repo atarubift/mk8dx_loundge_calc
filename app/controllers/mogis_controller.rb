@@ -22,6 +22,6 @@ class MogisController < ApplicationController
   private
 
     def mogis_params
-      params.require(:mogi).permit(:mogi_type_id, :total_score, :team_rank, :solo_rank, mogi_results_attributes: [:track_id, :rank])
+      params.require(:mogi).permit(:mogi_type_id, :total_score, :team_rank, :solo_rank, :url, mogi_results_attributes: [:track_id, :rank])
     end
 end

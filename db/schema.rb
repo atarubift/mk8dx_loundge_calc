@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_21_114152) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_21_120056) do
   create_table "mogi_results", charset: "utf8mb4", force: :cascade do |t|
     t.integer "rank"
     t.datetime "created_at", null: false
@@ -34,6 +34,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_21_114152) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "mogi_type_id"
+    t.string "url"
     t.index ["mogi_type_id"], name: "index_mogis_on_mogi_type_id"
   end
 
@@ -45,18 +46,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_21_114152) do
 
   create_table "tracks", charset: "utf8mb4", force: :cascade do |t|
     t.string "name"
-    t.integer "first"
-    t.integer "second"
-    t.integer "third"
-    t.integer "fourth"
-    t.integer "fifth"
-    t.integer "sixth"
-    t.integer "seventh"
-    t.integer "eighth"
-    t.integer "ninth"
-    t.integer "tenth"
-    t.integer "eleventh"
-    t.integer "twelfth"
+    t.integer "first", default: 0
+    t.integer "second", default: 0
+    t.integer "third", default: 0
+    t.integer "fourth", default: 0
+    t.integer "fifth", default: 0
+    t.integer "sixth", default: 0
+    t.integer "seventh", default: 0
+    t.integer "eighth", default: 0
+    t.integer "ninth", default: 0
+    t.integer "tenth", default: 0
+    t.integer "eleventh", default: 0
+    t.integer "twelfth", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "track_category_id"
