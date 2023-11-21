@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_20_115602) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_21_114152) do
   create_table "mogi_results", charset: "utf8mb4", force: :cascade do |t|
     t.integer "rank"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "tracks_id"
-    t.bigint "mogis_id"
-    t.index ["mogis_id"], name: "index_mogi_results_on_mogis_id"
-    t.index ["tracks_id"], name: "index_mogi_results_on_tracks_id"
+    t.bigint "track_id", null: false
+    t.bigint "mogi_id", null: false
+    t.index ["mogi_id"], name: "index_mogi_results_on_mogi_id"
+    t.index ["track_id"], name: "index_mogi_results_on_track_id"
   end
 
   create_table "mogi_types", charset: "utf8mb4", force: :cascade do |t|
@@ -63,8 +63,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_20_115602) do
     t.index ["track_category_id"], name: "index_tracks_on_track_category_id"
   end
 
-  add_foreign_key "mogi_results", "mogis", column: "mogis_id"
-  add_foreign_key "mogi_results", "tracks", column: "tracks_id"
+  add_foreign_key "mogi_results", "mogis"
+  add_foreign_key "mogi_results", "tracks"
   add_foreign_key "mogis", "mogi_types"
   add_foreign_key "tracks", "track_categories"
 end

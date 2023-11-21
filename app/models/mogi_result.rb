@@ -1,4 +1,4 @@
 class MogiResult < ApplicationRecord
-  belongs_to :tracks
-  belongs_to :mogis
+  belongs_to :track
+  belongs_to :mogi
 end
