@@ -5,7 +5,8 @@
     <tr>
       <th>Total Mogi</th>
       <th>Score Ave.</th>
-      <th>Solo Rank Ave.</th>
+      <th>Final Rank Ave.</th>
+      <th>All Track Rank Ave.</th>
     </tr>
   </thead>
   <tbody>
@@ -13,6 +14,7 @@
       <td><%= @mogis.count %></td>
       <td><%= @mogis.average(:total_score) %></td>
       <td><%= @mogis.average(:solo_rank) %></td>
+      <td><%= @mogi_results.average(:rank) %></td>
     </tr>
   </tbody>
 </table>
