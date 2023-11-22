@@ -1,0 +1,52 @@
+<h1>Mogi List</h1>
+
+<ol>
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>1</th>
+        <th>2</th>
+        <th>3</th>
+        <th>4</th>
+        <th>5</th>
+        <th>6</th>
+        <th>7</th>
+        <th>8</th>
+        <th>9</th>
+        <th>10</th>
+        <th>11</th>
+        <th>12</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @tracks.each_slice(4).with_index do |group, index| %>
+        <% if group.any? %>
+          <tr>
+            <th colspan="4"><%= group.first.track_category.name %>カップ</th>
+          </tr>
+        <% end %>
+        <% group.each.with_index(1) do |track| %>
+          <tr>
+            <td><%= track.id %></td>
+            <td><%= link_to track.name, track_path(track) %></td>
+            <td><%= track.first %></td>
+            <td><%= track.second %></td>
+            <td><%= track.third %></td>
+            <td><%= track.fourth %></td>
+            <td><%= track.fifth %></td>
+            <td><%= track.sixth %></td>
+            <td><%= track.seventh %></td>
+            <td><%= track.eighth %></td>
+            <td><%= track.ninth %></td>
+            <td><%= track.tenth %></td>
+            <td><%= track.eleventh %></td>
+            <td><%= track.twelfth %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</ol>
+
