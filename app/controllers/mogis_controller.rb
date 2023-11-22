@@ -25,7 +25,7 @@ class MogisController < ApplicationController
         track = Track.find(track_id)
         track.increment_rank(rank.to_i)
       end
-      redirect_to mogis_path
+      redirect_to mogi_path(@mogis)
     else
       puts @mogis.errors.full_messages
       render 'new'
