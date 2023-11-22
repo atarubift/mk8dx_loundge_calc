@@ -4,6 +4,10 @@ class MogisController < ApplicationController
     @mogis = Mogi.all
   end
 
+  def show
+    @mogis = Mogi.find(params[:id])
+  end
+
   def new
     @mogis = Mogi.new
     12.times { @mogis.mogi_results.build }
