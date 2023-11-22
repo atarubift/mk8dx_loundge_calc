@@ -1,2 +1,38 @@
-<h1>Tracks#show</h1>
-<p>Find me in app/views/tracks/show.html.erb</p>
+<h1>Tracks Details</h1>
+<h2><%= @tracks.name %></h2>
+<table>
+    <thead>
+      <tr>
+        <th>Ave.</th>
+        <th>1</th>
+        <th>2</th>
+        <th>3</th>
+        <th>4</th>
+        <th>5</th>
+        <th>6</th>
+        <th>7</th>
+        <th>8</th>
+        <th>9</th>
+        <th>10</th>
+        <th>11</th>
+        <th>12</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= @ave %></td>
+        <td><%= @tracks.first %></td>
+        <td><%= @tracks.second %></td>
+        <td><%= @tracks.third %></td>
+        <td><%= @tracks.fourth %></td>
+        <td><%= @tracks.fifth %></td>
+        <td><%= @tracks.sixth %></td>
+        <td><%= @tracks.seventh %></td>
+        <td><%= @tracks.eighth %></td>
+        <td><%= @tracks.ninth %></td>
+        <td><%= @tracks.tenth %></td>
+        <td><%= @tracks.eleventh %></td>
+        <td><%= @tracks.twelfth %></td>
+      </tr>
+    </tbody>
+  </table>

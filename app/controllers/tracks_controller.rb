@@ -4,5 +4,7 @@ class TracksController < ApplicationController
   end
 
   def show
+    @tracks = Track.find(params[:id])
+    @ave = @tracks.rank_ave
   end
 end

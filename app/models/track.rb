@@ -31,4 +31,28 @@ class Track < ApplicationRecord
     end
     save
   end
+
+  def rank_ave()
+    rank_count = [
+      self.first,
+      self.second, 
+      self.third,
+      self.fourth, 
+      self.fifth,
+      self.sixth,
+      self.seventh, 
+      self.eighth,
+      self.ninth,
+      self.tenth,
+      self.eleventh,
+      self.twelfth,
+    ]
+    race_sum = rank_count.sum
+    rank = []
+    rank_count.each_with_index do |count, index|
+      rank << count * (index + 1)
+    end
+    rank_sum = rank.sum
+    ave = (rank_sum / race_sum.to_f).round(2)
+  end
 end
