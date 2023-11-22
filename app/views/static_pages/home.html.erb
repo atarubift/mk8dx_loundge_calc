@@ -1,9 +1,28 @@
-<h1>History</h1>
+<h2>Summary</h2>
 
-<% @mogis.each do |mogi| %>
-<h2>
+<table>
+  <thead>
+    <tr>
+      <th>Total Mogi</th>
+      <th>Score Ave.</th>
+      <th>Solo Rank Ave.</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @mogis.count %></td>
+      <td><%= @mogis.average(:total_score) %></td>
+      <td><%= @mogis.average(:solo_rank) %></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>History</h2>
+
+<% @mogis_last.each do |mogi| %>
+<h3>
 <%= link_to "【#{mogi.mogi_type.name}】 #{mogi.created_at}", mogi_path(mogi) %>
-</h2>
+</h3>
     <table>
     <thead>
       <tr>
