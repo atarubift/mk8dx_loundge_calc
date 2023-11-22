@@ -1,7 +1,42 @@
-<h1>Link Details</h1>
+<h1>Mogis Details</h1>
+<h3>
+  <a href="<%= @mogis.url %>" target="_blank">Lounge/TableDetails</a>
+</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Score</th>
+      <th>Team Rank</th>
+      <th>Solo Rank</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @mogis.mogi_type.name %></td>
+      <td><%= @mogis.total_score %> </td>
+      <td><%= @mogis.team_rank %></td>
+      <td><%= @mogis.solo_rank %></td>
+    </tr>
+  </tbody>
+</table>
 
-<p>Link URL: <%= @mogis.url %></p>
-<p>Link Name: <%= @mogis.id %></p>
 
-<!-- リンクを表示する -->
-<a href="<%= @mogis.url %>" target="_blank">Visit Link</a>
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Track</th>
+      <th>Rank</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @mogi_results.each.with_index(1) do |mogi_result, index| %>
+      <tr>
+        <td><%= index %></td>
+        <td><%= link_to mogi_result.track.name, track_path(mogi_result.track) %></td>
+        <td><%= mogi_result.rank %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

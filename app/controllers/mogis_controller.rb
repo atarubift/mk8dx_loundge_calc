@@ -6,6 +6,7 @@ class MogisController < ApplicationController
 
   def show
     @mogis = Mogi.find(params[:id])
+    @mogi_results = @mogis.mogi_results
   end
 
   def new
