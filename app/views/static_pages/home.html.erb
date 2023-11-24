@@ -7,14 +7,18 @@
       <th>Score Ave.</th>
       <th>Final Rank Ave.</th>
       <th>All Track Rank Ave.</th>
+      <th>Max Score</th>
+      <th>Min Score</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><%= @mogis.count %></td>
-      <td><%= @mogis.average(:total_score) %></td>
-      <td><%= @mogis.average(:solo_rank) %></td>
-      <td><%= @mogi_results.average(:rank) %></td>
+      <td><%= @mogis.average(:total_score).round(1) %></td>
+      <td><%= @mogis.average(:solo_rank).round(1) %></td>
+      <td><%= @mogi_results.average(:rank).round(1) %></td>
+      <td><%= @mogis.maximum(:total_score) %></td>
+      <td><%= @mogis.minimum(:total_score) %></td>
     </tr>
   </tbody>
 </table>
