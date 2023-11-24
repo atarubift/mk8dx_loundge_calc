@@ -1,9 +1,24 @@
 <h1>Mogi List</h1>
 
-<ol>
-  <% @mogis.each do |mogi| %>
-    <li>
-      <%= link_to "【#{mogi.mogi_type.name}】 #{mogi.created_at}", mogi_path(mogi) %>
-    </li>
-  <% end %>
-</ol>
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Link</th>
+      <th>Team Rank</th>
+      <th>Solo Rank</th>
+      <th>Score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @mogis.each.with_index(1) do |mogi, index| %>
+      <tr>
+        <td><%= index %></td>
+        <td><%= link_to "【#{mogi.mogi_type.name}】 #{mogi.created_at}", mogi_path(mogi) %></td>
+        <td><%= mogi.team_rank %></td>
+        <td><%= mogi.solo_rank %></td>
+        <td><%= mogi.total_score %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
